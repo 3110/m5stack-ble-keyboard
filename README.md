@@ -1,10 +1,11 @@
 # M5Stack用BLEキーボードライブラリ
 
-[ESP32 BLE Keyboard library](https://github.com/T-vK/ESP32-BLE-Keyboard)をM5Stackシリーズで使うためのライブラリです。各機種ごとに公式から提供されているライブラリは使用せず，[M5Unified](https://github.com/m5stack/M5Unified)を使用しています。
+[PlatformIO IDE](https://platformio.org/platformio-ide)を使用してM5Stackシリーズで[ESP32 BLE Keyboard library](https://github.com/T-vK/ESP32-BLE-Keyboard)を使うためのライブラリです。M5Stackシリーズに対応するため[M5Unified](https://github.com/m5stack/M5Unified)を利用しています。PlatformIO IDEで環境を切り替えるだけでさまざまな機種での開発・ビルドに対応できます。
 
 ## サンプルプログラム
 
-サンプルプログラムを書き込んだM5Stackを起動すると，「M5 BLE Keyboard」という名前のBluetoothデバイスとして検出可能になりますので，デバイスを追加してペアリングしてください。
+サンプルプログラムを書き込んだM5Stackを起動すると「M5 BLE Keyboard」という名前のBluetoothデバイスとして検出可能になります。デバイスを追加してペアリングしてください。
+
 ### CTRL+ALT+DELETEを送信する（`examples/ctrl-alt-delete`）
 
 ボタンAを押すとCTRL+ALT+DELETEを送信します。

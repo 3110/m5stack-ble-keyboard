@@ -35,7 +35,7 @@ bool onDisconnect(void) {
 void setup(void) {
     keyboard.begin(onConnect, onDisconnect);
 #if defined(ARDUINO_M5STACK_ATOM)
-    FastLED.addLeds<WS2812, GPIO_NUM_27, GRB>(led, NUM_LEDS);
+    FastLED.addLeds<WS2812, DATA_PIN, GRB>(led, NUM_LEDS);
     FastLED.show();
     FastLED.setBrightness(20);
 #endif

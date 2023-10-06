@@ -7,26 +7,27 @@ M5BLEKeyboard keyboard;
 #include <FastLED.h>
 
 CRGB led[NUM_LEDS] = {
-    0,
+    CRGB::Black,
 };
+
+inline void showLED(const CRGB& color, size_t n_leds = NUM_LEDS) {
+    for (size_t i = 0; i < n_leds; ++i) {
+        led[i] = color;
+    }
+    FastLED.show();
+}
 #endif
 
 bool onConnect(void) {
 #if defined(ARDUINO_M5STACK_ATOM)
-    for (int i = 0; i < NUM_LEDS; ++i) {
-        led[i] = CRGB::Green;
-    }
-    FastLED.show();
+    showLED(CRGB::Green);
 #endif
     return true;
 }
 
 bool onDisconnect(void) {
 #if defined(ARDUINO_M5STACK_ATOM)
-    for (int i = 0; i < NUM_LEDS; ++i) {
-        led[i] = CRGB::Red;
-    }
-    FastLED.show();
+    showLED(CRGB::Red);
 #endif
     return true;
 }

@@ -6,7 +6,7 @@
 
 ## 利用方法
 
-```
+```c++
 #include "M5BLEKeyboard.hpp"
 
 M5BLEKeyboard keyboard;
@@ -34,7 +34,7 @@ void loop(void) {
         keyboard.press(KEY_DELETE);
         M5.delay(100);
         keyboard.releaseAll();
- 	}
+    }
     M5.delay(10);
 }
 ```

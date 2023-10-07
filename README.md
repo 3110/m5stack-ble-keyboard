@@ -47,7 +47,7 @@ void loop(void) {
 
 ボタンAを押すとCTRL+ALT+DELETEを送信します。
 
-### シャッター（音量）（`examples/shutter`）
+### シャッター（`examples/shutter`）
 
 ボタンAを押すと音量アップボタンを送信します。スマホのカメラアプリのシャッターとして使えます。
 

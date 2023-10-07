@@ -18,9 +18,12 @@ public:
     virtual bool end(void);
 
     virtual bool press(uint8_t k);
+    virtual bool press(const MediaKeyReport k);
     virtual bool release(uint8_t k);
+    virtual bool release(const MediaKeyReport k);
     virtual bool releaseAll(void);
     virtual bool write(uint8_t c);
+    virtual bool write(const MediaKeyReport c);
     virtual bool write(const char* str, size_t len);
     virtual bool write(const String& str);
 

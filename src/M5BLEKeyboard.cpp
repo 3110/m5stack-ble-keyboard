@@ -53,7 +53,15 @@ bool M5BLEKeyboard::press(uint8_t k) {
     return this->_keyboard.press(k) == 1;
 }
 
+bool M5BLEKeyboard::press(const MediaKeyReport k) {
+    return this->_keyboard.press(k) == 1;
+}
+
 bool M5BLEKeyboard::release(uint8_t k) {
+    return this->_keyboard.release(k) == 1;
+}
+
+bool M5BLEKeyboard::release(const MediaKeyReport k) {
     return this->_keyboard.release(k) == 1;
 }
 
@@ -63,6 +71,10 @@ bool M5BLEKeyboard::releaseAll(void) {
 }
 
 bool M5BLEKeyboard::write(uint8_t c) {
+    return this->_keyboard.write(c) == 1;
+}
+
+bool M5BLEKeyboard::write(const MediaKeyReport c) {
     return this->_keyboard.write(c) == 1;
 }
 

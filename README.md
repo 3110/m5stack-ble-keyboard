@@ -4,6 +4,41 @@
 
 [PlatformIO IDE](https://platformio.org/platformio-ide)で環境を切り替えるだけで，さまざまな機種での開発・ビルドに対応できます。
 
+## 利用方法
+
+```
+#include "M5BLEKeyboard.hpp"
+
+M5BLEKeyboard keyboard;
+
+// 接続時のコールバック
+bool onConnect(void) {
+    return true;
+}
+
+// 切断時のコールバック
+bool onDisconnect(void) {
+    return true;
+}
+
+void setup(void) {
+    keyboard.begin(onConnect, onDisconnect);
+}
+
+void loop(void) {
+    keyboard.update();
+    if (M5.BtnA.wasClicked()) {
+        M5_LOGI("Sending Ctrl+Alt+Delete...");
+        keyboard.press(KEY_LEFT_CTRL);
+        keyboard.press(KEY_LEFT_ALT);
+        keyboard.press(KEY_DELETE);
+        M5.delay(100);
+        keyboard.releaseAll();
+ 	}
+    M5.delay(10);
+}
+```
+
 ## サンプルプログラム
 
 サンプルプログラムを書き込んだM5Stackを起動すると「M5 BLE Keyboard」という名前のBluetoothデバイスとして検出可能になります。デバイスを追加してペアリングしてください。

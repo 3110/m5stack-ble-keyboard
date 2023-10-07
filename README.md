@@ -47,6 +47,10 @@ void loop(void) {
 
 ボタンAを押すとCTRL+ALT+DELETEを送信します。
 
+### シャッター（音量）（`examples/shutter`）
+
+ボタンAを押すと音量アップボタンを送信します。スマホのカメラアプリのシャッターとして使えます。
+
 ## 既知の問題
 
 - ペアリング前に`BleKeyboard::isConnected()`がたまに`true`を返すため，`M5BLEKeyboard::update()`の中で接続・切断を繰り返しているように見えます。

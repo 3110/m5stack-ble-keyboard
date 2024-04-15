@@ -1,7 +1,6 @@
 #pragma once
 
 #include <BleKeyboard.h>
-#include <M5Unified.h>
 
 class M5BLEKeyboard {
 public:

@@ -1,12 +1,13 @@
 # M5StackをBLEキーボードにする
 
-[ESP32 BLE Keyboard library](https://github.com/T-vK/ESP32-BLE-Keyboard)と[M5Unified](https://github.com/m5stack/M5Unified)を利用して，M5StackをBLEキーボードにします。
+[ESP32 BLE Keyboard library](https://github.com/T-vK/ESP32-BLE-Keyboard)を利用して，M5StackをBLEキーボードにします。
 
 [PlatformIO IDE](https://platformio.org/platformio-ide)で環境を切り替えるだけで，さまざまな機種での開発・ビルドに対応できます。
 
 ## 利用方法
 
 ```c++
+#include <M5Unified.h>
 #include "M5BLEKeyboard.hpp"
 
 M5BLEKeyboard keyboard;
@@ -22,10 +23,12 @@ bool onDisconnect(void) {
 }
 
 void setup(void) {
+    M5.begin();
     keyboard.begin(onConnect, onDisconnect);
 }
 
 void loop(void) {
+    M5.update();
     keyboard.update();
     if (M5.BtnA.wasClicked()) {
         M5_LOGI("Sending Ctrl+Alt+Delete...");

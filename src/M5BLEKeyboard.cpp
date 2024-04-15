@@ -15,7 +15,6 @@ M5BLEKeyboard::~M5BLEKeyboard(void) {
 
 bool M5BLEKeyboard::begin(std::function<bool(void)> onConnect,
                           std::function<bool(void)> onDisconnect) {
-    M5.begin();
     this->_keyboard.begin();
     this->_on_connect = onConnect;
     this->_on_disconnect = onDisconnect;
@@ -23,11 +22,10 @@ bool M5BLEKeyboard::begin(std::function<bool(void)> onConnect,
 }
 
 bool M5BLEKeyboard::update(void) {
-    M5.update();
     if (this->_keyboard.isConnected()) {
         if (!this->_connected) {
             this->_connected = true;
-            M5_LOGI("BLE Connected");
+            ESP_LOGI("M5BLEKeyboard", "BLE Connected");
             if (this->_on_connect) {
                 return this->_on_connect();
             }
@@ -35,7 +33,7 @@ bool M5BLEKeyboard::update(void) {
     } else {
         if (this->_connected) {
             this->_connected = false;
-            M5_LOGI("BLE Disconnected");
+            ESP_LOGI("M5BLEKeyboard", "BLE Disconnected");
             if (this->_on_disconnect) {
                 return this->_on_disconnect();
             }

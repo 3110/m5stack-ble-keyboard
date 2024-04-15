@@ -1,3 +1,5 @@
+#include <M5Unified.h>
+
 #include "M5BLEKeyboard.hpp"
 
 M5BLEKeyboard keyboard;
@@ -33,6 +35,7 @@ bool onDisconnect(void) {
 }
 
 void setup(void) {
+    M5.begin();
     keyboard.begin(onConnect, onDisconnect);
 #if defined(HAS_LED)
     FastLED.addLeds<WS2812, DATA_PIN, RGB_ORDER>(led, NUM_LEDS);
@@ -42,6 +45,7 @@ void setup(void) {
 }
 
 void loop(void) {
+    M5.update();
     keyboard.update();
     if (M5.BtnA.wasClicked()) {
         M5_LOGI("Sending Ctrl+Alt+Delete...");

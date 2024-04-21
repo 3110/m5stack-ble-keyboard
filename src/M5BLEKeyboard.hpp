@@ -2,6 +2,8 @@
 
 #include <BleKeyboard.h>
 
+#include <functional>
+
 class M5BLEKeyboard {
 public:
     static const char* DEVICE_NAME;

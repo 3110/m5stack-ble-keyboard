@@ -1,6 +1,7 @@
 #pragma once
 
 #include <BleKeyboard.h>
+#include <esp_log.h>
 
 #include <functional>
 
